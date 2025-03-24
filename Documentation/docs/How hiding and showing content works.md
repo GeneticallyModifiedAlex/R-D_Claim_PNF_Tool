@@ -1,0 +1,3 @@
+On the example site [Queen's Lane Consultants](https://queenslc.com/resources/r-and-d-tax-credit-calculator/) the hiding and viewing of content is completed by changing the display option for the element between the states of `display:none;`(so that the item isn't visible) and `display:block;'`
+
+This will allow the items to be built out and formatted as needed and only displayed when the section is specifically needed.

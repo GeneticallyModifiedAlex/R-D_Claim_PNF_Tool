@@ -37,10 +37,10 @@ Build a tool to guide users through a series of questions to determine if they n
 ## Phase 1: MVP
 Phase required for base functionality and where future improvements are also mapped (thus accurate estimates can be given on future phases)
 
-- [ ] Define GOE
+- [x] Define GOE
 - [ ] Build a basic HTML Page
 - [ ] Build a reset.css and none.css to remove default styling
-- [ ] Identify the [[Analysis of Queen's Lane Consultants|Font and Colours needed]]
+- [ ] Identify the [[Analysis of Queen's Lane Consultants Site|Font and Colours needed]]
 - [ ] Create a root.css with the variables needed for styling(root in index.css may be sufficient)
 - [ ] Research [[HMRC Prenotify (PNF)]]
 - [ ] Research [[R&D Claims]]
@@ -55,7 +55,7 @@ Phase required for base functionality and where future improvements are also map
 ## Phase 2
 - [ ] Show 2nd "screen" to display estimated benifit
 	- [ ] make a 'Hide the input screen' response to the submit button
-	- [ ] Map json values with values shown in [[Analysis of Queen's Lane Consultants]] 
+	- [ ] Map json values with values shown in [[Analysis of Queen's Lane Consultants Site]] 
 - [ ] allow user to return the a blank form to edit values (button click)
 	- [ ] show the input screen and hide the summary screens
 - [ ] Allow the showing of a detailed breakdown
