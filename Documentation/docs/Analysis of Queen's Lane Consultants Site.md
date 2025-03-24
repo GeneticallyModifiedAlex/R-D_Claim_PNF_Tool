@@ -1,0 +1,2 @@
+1. The colors that are used in queens lane comes from a stylesheet pulled from the following location https://queenslc.com/hs-fs/hubfs/hub_generated/module_assets/1/114206314976/1741923534952/module_rd-calculator.min.css
+2. The form is standard

@@ -1,0 +1,14 @@
+/* Root defines base parameters for text of which the other elements are scaled */
+html
+{
+    font-family: Poppins,sans-serif;
+    font-size: 18px;
+
+}
+
+:root {
+    font-family: Poppins,sans-serif;
+    font-size: 18px;
+}
+
+

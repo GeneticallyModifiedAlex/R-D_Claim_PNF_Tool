@@ -1,0 +1,208 @@
+/* <!-- style02 core style --> */
+
+.tax-benefit-container {
+  text-align: center;
+}
+.tax-benefit-container h2 {
+  font-weight: 700;
+  margin: 0;
+}
+.estimated-amount {
+  font-size: 2rem;
+  margin: 0;
+}
+.estimate-description {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+}
+.calculator-container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 30px;
+}
+.calculator-header {
+  background-color: #3a82f7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  text-align: center;
+}
+.calculator-header h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0;
+}
+.calculator-header p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 5px 0 0;
+  padding: 0;
+}
+.form-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+input[type="date"],
+input[type="number"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 12px;
+  width: 100%;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+}
+
+.results-cards {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.card-row,
+.results-cards {
+  display: flex;
+  justify-content: space-between;
+}
+.card-row {
+  width: 100%;
+}
+.card {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  flex: 1;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.card strong {
+  color: #007bff;
+  display: block;
+  font-size: 1.2rem;
+}
+.card p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .card strong {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .card {
+    margin: 8px 2px;
+    padding: 8px;
+  }
+  .card p {
+    color: #333;
+    font-size: 12.5px;
+    margin-top: 10px;
+  }
+}
+.calculator-container table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 100%;
+}
+.calculator-container td,
+.calculator-container th {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.calculator-container td.costType {
+  text-align: left;
+}
+.calculator-container th {
+  background-color: #f0f0f0;
+  font-weight: 700;
+}
+.calculator-container tfoot td,
+.calculator-container tfoot th,
+.calculator-container thead td,
+.calculator-container thead th {
+  background-color: rgba(247, 232, 234, 0);
+  color: #08174d;
+}
+.total-benefit-container {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 20px;
+  text-align: center;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  color: #0d2d57;
+}
+.calculator-table {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.calculator-table.fade-in {
+  display: table;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+/* </style>
+<!-- Style01 colours pulled from the site -->
+<style> */
+/* TODO Remove Timestamp */
+#hs-button_module_17325459911446 {
+  display: inline-block;
+
+  background-color: rgba(58, 130, 247, 0);
+  color: #3a82f7;
+
+  padding-top: px;
+  padding-bottom: px;
+
+  padding-left: px;
+  padding-right: px;
+}
+#hs-button_module_17325459911446:hover {
+  background-color: rgba(25, 108, 243, 0);
+  color: rgba(25, 108, 243, 1);
+
+  padding-top: px;
+  padding-bottom: px;
+
+  padding-left: px;
+  padding-right: px;
+}
+
+/* Style03 Font import */
+/* TODO Fix broken font insert */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.css");
+
+
+.cm_nv_wrp .cm_nv_inner .custom,
+.hs-button,
+.tabber .media-col .form-wrap input.hs-button,
+form input[type="submit"] {
+  background-color: #3a82f7;
+  border-color: #3a82f7;
+  border-radius: 15px;
+  border-width: 0;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  padding: 16px 66px;
+}
