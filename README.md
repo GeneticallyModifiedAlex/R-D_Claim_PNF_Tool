@@ -14,6 +14,11 @@ p.s. the background is only beige to make the prenotification section pop more. 
 
 Full details can be found in the documentation section (goes over the process of investigation and how the output was reached (I write the documentation at the same time as completing tasks as part of my work method))
 
+
+Example with all the items visible 
+![image](https://github.com/user-attachments/assets/8d4dba51-686f-4228-84ed-237b98d78386)
+
+
 # Possible Improvements
 - remove dependancy on form-group and form-row classes from hubspot.
 - create json object to save state of answers for future tracking
