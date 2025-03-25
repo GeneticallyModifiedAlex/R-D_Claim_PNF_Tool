@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
     <title>R&D Relief Decision Tree</title>
   <style>
-    .hidden { display: none; }
+    .hidden { display: block; }
     .step { margin-bottom: 20px; }
   </style>
 </head>
 <body>
+  <link rel="stylesheet" href="../Style/reset.css">
+  <link rel="stylesheet" href="../Style/root.css">
+  <link rel="stylesheet" href="../Style/qm.css">
 
+  <div class="calculator-container">
+    <div class="calculator-header">
+      <h2>Pre-Notification Checker</h2>
+      <p>Determine if you need to Pre-Notify HMRC</p>
+    </div>
   <form id="PNF-Questions">
     <!-- Step 1 -->
     <!-- Autocomplete moved to remove bug where onReset form inputs would be preselected (breaking the flow) -->
@@ -22,19 +30,29 @@
     <!-- Step 2 -->
     <!-- Date formating has been changed to text to avoid issues with onchange handlers (temp solution) -->
     <!-- TODO: Fix the date onchange handler -->
-    <div class="step hidden" id="step2">
+    <div class="step hidden form-row" id="step2">
       <label>On what date did you file the last claim? (DD/MM/YYYY)</label><br>
       <input type="text" autocomplete="off" id="lastClaimDate" placeholder="DD/MM/YYYY">
     </div>
 
     <!-- Step 3 -->
+  <div class=" step hidden" id="step3">
+    <h1 >Dates of Last Reporting Period (DD/MM/YYYY)</h1>
+    <br>
+    <br>
+    <div class="step form-row">
+      <div class="form-row">
+        <label>Start Date:</label>
+        <input type="text" autocomplete="off" id="startDate" placeholder="DD/MM/YYYY">
+      </div>
+      <div class="form-row">
+        <label>End Date:</label>
 
-    <div class="step hidden" id="step3">
-      <label>Enter Start Date of last accounting period (DD/MM/YYYY):</label><br>
-      <input type="text" autocomplete="off" id="startDate"><br>
-      <label>Enter End Date of last accounting period (DD/MM/YYYY):</label><br>
-      <input type="text" autocomplete="off" id="endDate">
+        <input type="text" autocomplete="off" id="endDate" placeholder="DD/MM/YYYY">
+      </div>
+
     </div>
+  </div>
 
     <!-- Step 4 -->
     <div class="step hidden" id="step4">
@@ -52,6 +70,7 @@
 
     <div id="result" class="step hidden"></div>
   </form>
+  </div>
 
   <script>
     const step1 = document.getElementById('step1');
@@ -99,7 +118,7 @@
       if (start  > startLimit) {
         removeHiddenClass(step4);
       } else {
-        result.innerHTML = '<strong>No PNF Requisred</strong>';
+        result.innerHTML = '<strong>No PNF Required</strong>';
         removeHiddenClass(result);
       }
     });

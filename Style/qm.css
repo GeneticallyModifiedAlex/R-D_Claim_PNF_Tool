@@ -21,7 +21,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 800px;
   padding: 30px;
 }
 .calculator-header {
@@ -45,7 +45,7 @@
 .form-row {
   display: flex;
   gap: 20px;
-  justify-content: space-between;
+  justify-content:space-between ;
 }
 .form-group {
   flex: 1;
@@ -98,21 +98,7 @@ input[type="number"] {
   font-size: 1.1rem;
   margin-top: 10px;
 }
-@media (max-width: 768px) {
-  .card strong {
-    font-size: 12.5px;
-    line-height: 1.4;
-  }
-  .card {
-    margin: 8px 2px;
-    padding: 8px;
-  }
-  .card p {
-    color: #333;
-    font-size: 12.5px;
-    margin-top: 10px;
-  }
-}
+
 .calculator-container table {
   border-collapse: collapse;
   margin-top: 20px;
@@ -205,4 +191,50 @@ form input[type="submit"] {
   font-family: Poppins, sans-serif;
   font-size: 18px;
   padding: 16px 66px;
+}
+
+form legend {
+  color:#0d2d57
+}
+.tabber .media-col .form-wrap .hs-input,
+form input[type=email],
+form input[type=file],
+form input[type=number],
+form input[type=password],
+form input[type=search],
+form input[type=tel],
+form input[type=text],
+form select,
+form textarea {
+  background-color:hsla(0,0%,100%,.76);
+  border-color:#ced4da;
+  border-radius:15px;
+  color:#212529
+}
+form legend {
+  font-size:.875rem
+}
+
+
+
+form input[type=email],
+form input[type=file],
+form input[type=number],
+form input[type=password],
+form input[type=search],
+form input[type=tel],
+form input[type=text],
+form select,
+form textarea {
+  border-style:solid;
+  border-width:1.2px;
+  display:inline-block;
+  font-weight:inherit;
+
+  outline:none;
+  padding:.7rem;
+  width:100%;
+}
+#lastClaimDate{
+  width: 30% ;
 }
