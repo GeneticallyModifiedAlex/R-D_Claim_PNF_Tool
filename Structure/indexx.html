@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb">
 <head>
   <meta charset="UTF-8">
-  <title>R&D Relief Decision Tree</title>
+    <title>R&D Relief Decision Tree</title>
   <style>
     .hidden { display: none; }
     .step { margin-bottom: 20px; }
@@ -11,26 +11,29 @@
 <body>
 
   <form id="PNF-Questions">
-
     <!-- Step 1 -->
+    <!-- Autocomplete moved to remove bug where onReset form inputs would be preselected (breaking the flow) -->
     <div class="step" id="step1">
       <label>Have you claimed for R&D relief before?</label><br>
-      <input type="radio" name="claimedBefore" value="yes"> Yes<br>
-      <input type="radio" name="claimedBefore" value="no"> No
+      <input type="radio" autocomplete="off" name="claimedBefore" value="yes"> Yes<br>
+      <input type="radio" autocomplete="off" name="claimedBefore" value="no"> No
     </div>
 
     <!-- Step 2 -->
+    <!-- Date formating has been changed to text to avoid issues with onchange handlers (temp solution) -->
+    <!-- TODO: Fix the date onchange handler -->
     <div class="step hidden" id="step2">
       <label>On what date did you file the last claim? (DD/MM/YYYY)</label><br>
-      <input type="date" id="lastClaimDate" placeholder="DD/MM/YYYY">
+      <input type="text" autocomplete="off" id="lastClaimDate" placeholder="DD/MM/YYYY">
     </div>
 
     <!-- Step 3 -->
+
     <div class="step hidden" id="step3">
       <label>Enter Start Date of last accounting period (DD/MM/YYYY):</label><br>
-      <input type="text" id="startDate"><br>
+      <input type="text" autocomplete="off" id="startDate"><br>
       <label>Enter End Date of last accounting period (DD/MM/YYYY):</label><br>
-      <input type="text" id="endDate">
+      <input type="text" autocomplete="off" id="endDate">
     </div>
 
     <!-- Step 4 -->
@@ -63,7 +66,7 @@
     }
 
     function hideAllAfter(step) {
-      [step2, step3, step4, step5, result].forEach((el, i) => {
+      [step1, step2, step3, step4, step5, result].forEach((el, i) => {
         if (i >= step) el.classList.add('hidden');
       });
     }
@@ -82,19 +85,21 @@
     });
 
     // Step 2
-    document.getElementById('lastClaimDate').addEventListener('blur', () => {
+    document.getElementById('lastClaimDate').addEventListener('change', () => {
       hideAllAfter(2);
       removeHiddenClass(step3);
     });
 
     // Step 3
-    document.getElementById('endDate').addEventListener('blur', () => {
+    //listener set to end date so that both can be entered before next question appears
+    document.getElementById('startDate').addEventListener('change', () => {
+      const startLimit = new Date('2023-04-01');
       hideAllAfter(3);
-      const start = parseDate(document.getElementById('startDate').value);
-      if (start && start < new Date('2023-04-01')) {
+      let start = new Date(parseDate(document.getElementById('startDate').value));
+      if (start  > startLimit) {
         removeHiddenClass(step4);
       } else {
-        result.innerHTML = '<strong>No PNF Required</strong>';
+        result.innerHTML = '<strong>No PNF Requisred</strong>';
         removeHiddenClass(result);
       }
     });
@@ -130,7 +135,7 @@
       const parts = str.split('/');
       if (parts.length === 3) {
         const [dd, mm, yyyy] = parts.map(Number);
-        return new Date(yyyy, mm - 1, dd);
+        return new Date(yyyy, mm-1, dd);
       }
       return null;
     }
