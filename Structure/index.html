@@ -1,230 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>R&D PNF Claim Calculator</title>
-  </head>
-  <body>
-    <link rel="stylesheet" href="../Style/reset.css">
-    <link rel="stylesheet" href="../Style/root.css">
-    <link rel="stylesheet" href="../Style/qm.css">
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+    <title>R&D Relief Decision Tree</title>
+  <style>
+    .hidden { display: hidden; }
+    .step { margin-bottom: 20px; }
+  </style>
+</head>
+<body style="background-color: beige;">
+  <link rel="stylesheet" href="../Style/reset.css">
+  <link rel="stylesheet" href="../Style/root.css">
+  <link rel="stylesheet" href="../Style/qm.css">
 
-    <div class="calculator-container">
-      <div class="calculator-header">
-        <h2>R&amp;D Calculator</h2>
-        <p>Calculate your company's R&amp;D tax relief quickly and easily</p>
-      </div>
-
-      <form id="rd-calculator" data-hs-cf-bound="true" style="display: none">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="startDate">Accounting period start date</label>
-            <input type="date" id="startDate" name="startDate" required="" />
-          </div>
-
-          <div class="form-group">
-            <label for="endDate">Accounting period end date</label>
-            <input type="date" id="endDate" name="endDate" required="" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rdExpenditurePayroll">Estimated Payroll (£)</label>
-            <input
-              type="number"
-              id="rdExpenditurePayroll"
-              name="rdExpenditurePayroll"
-              value="0.00"
-              min="0"
-              step="0.01"
-              required=""
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="rdExpenditureSubcontractor"
-              >Estimated Subcontractor Costs (£)</label
-            >
-            <input
-              type="number"
-              id="rdExpenditureSubcontractor"
-              name="rdExpenditureSubcontractor"
-              value="0.00"
-              min="0"
-              step="0.01"
-              required=""
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rdExpenditureConsumable"
-              >Estimated Consumable Costs (£)</label
-            >
-            <input
-              type="number"
-              id="rdExpenditureConsumable"
-              name="rdExpenditureConsumable"
-              value="0.00"
-              min="0"
-              step="0.01"
-              required=""
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="rdExpenditureSoftware"
-              >Estimated Software Costs (£)</label
-            >
-            <input
-              type="number"
-              id="rdExpenditureSoftware"
-              name="rdExpenditureSoftware"
-              value="0.00"
-              min="0"
-              step="0.01"
-              required=""
-            />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="numAssociatedCompanies"
-            >Number of associated companies</label
-          >
-          <input
-            type="number"
-            id="numAssociatedCompanies"
-            name="numAssociatedCompanies"
-            value="0"
-            min="0"
-            required=""
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="profitOrLoss">Taxable profit/loss (£)</label>
-          <input
-            type="number"
-            id="profitOrLoss"
-            name="profitOrLoss"
-            value="0.00"
-            step="0.01"
-            required=""
-          />
-        </div>
-
-        <div class="button-container">
-          <button class="hs-button" type="submit" id="calculateBtn">
-            Calculate
-          </button>
-        </div>
-      </form>
-
-      <div id="resultsContainer" style="display: block">
-        <div class="results-cards">
-          <div class="card-row">
-            <div class="card">
-              <strong>Accounting period<br />start date:</strong>
-              <p id="resultStartDate">2024-03-01</p>
-            </div>
-            <div class="card">
-              <strong>Accounting period<br />end date:</strong>
-              <p id="resultEndDate">2025-02-28</p>
-            </div>
-            <div class="card">
-              <strong>Total<br />days:</strong>
-              <p id="resultTotalDays">365</p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="card">
-              <strong>Estimated R&amp;D<br />expenditure:</strong>
-              <p id="resultRDExpenditure">£0.00</p>
-            </div>
-            <div class="card">
-              <strong>Taxable<br />profit/loss:</strong>
-              <p id="resultProfitOrLoss">£0.00</p>
-            </div>
-            <div class="card">
-              <strong>Number of associated<br />companies:</strong>
-              <p id="resultNumAssociatedCompanies">0</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="tax-benefit-container">
-          <h2>Your estimated tax benefit from R&amp;D activities is:</h2>
-          <p id="estimatedAmount" class="estimated-amount">£0</p>
-          <p class="estimate-description">
-            This is an estimated value of the tax credits your company may
-            qualify for.
-          </p>
-        </div>
-        <div class="button-container">
-          <button class="hs-button" id="toggleTableBtn">
-            Show detailed breakdown
-          </button>
-        </div>
-        <div class="button-container" style="margin-top: 5px">
-          <button class="hs-button" id="resetBtn">Calculate New</button>
-        </div>
-        <table class="calculator-table" style="display: none">
-          <!-- Thead will be dynamically populated based on the conditions in JavaScript -->
-          <thead>
-            <tr>
-              <th></th>
-              <th>Total (£)</th>
-            </tr>
-          </thead>
-          <tbody id="resultsTable">
-            <tr>
-              <td class="costType">
-                Taxable profit/loss pre R&amp;D (19/19-25%)
-              </td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Tax chargeable pre R&amp;D</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">R&amp;D enhancement</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Enhanced R&amp;D expenditure</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">
-                Taxable profit/loss post R&amp;D (19/19-25%)
-              </td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Tax chargeable post R&amp;D</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Tax Refund</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Tax Credit</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td class="costType">Total Benefit</td>
-              <td>0</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="total-benefit-container" id="totalBenefitContainer"></div>
-      </div>
+  <div class="calculator-container" style="margin-top: 20px;">
+    <div class="calculator-header">
+      <h2>Pre-Notification Checker</h2>
+      <p>Determine if you need to Pre-Notify HMRC</p>
     </div>
-  </body>
+  <form id="PNF-Questions">
+    <!-- Step 1 -->
+    <!-- Autocomplete moved to remove bug where onReset form inputs would be preselected (breaking the flow) -->
+    <div class="step" id="step1">
+      <label>Have you claimed for R&D relief before?</label><br>
+      <input type="radio" autocomplete="off" name="claimedBefore" value="yes"> Yes<br>
+      <input type="radio" autocomplete="off" name="claimedBefore" value="no"> No
+    </div>
+
+    <!-- Step 2 -->
+    <!-- Date formating has been changed to text to avoid issues with onchange handlers (temp solution) -->
+    <!-- TODO: Fix the date onchange handler -->
+    <div class="step hidden form-row" id="step2">
+      <label>On what date did you file the last claim? (DD/MM/YYYY)</label><br>
+      <input type="text" autocomplete="off" id="lastClaimDate" placeholder="DD/MM/YYYY">
+    </div>
+
+    <!-- Step 3 -->
+  <div class=" step hidden" id="step3">
+    <strong >Dates of Last Reporting Period (DD/MM/YYYY)</strong>
+    <br>
+    <br>
+    <div class="step form-row">
+      <div class="form-row">
+        <label>Start Date:</label>
+        <input type="text" autocomplete="off" id="startDate" placeholder="DD/MM/YYYY">
+      </div>
+      <div class="form-row">
+        <label>End Date:</label>
+
+        <input type="text" autocomplete="off" id="endDate" placeholder="DD/MM/YYYY">
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Step 4 -->
+    <div class="step hidden" id="step4">
+      <label>Was the claim filed as an amended tax return or with the original submission?</label><br>
+      <br>
+      <input type="radio" name="filingType" value="amended"> Amended Submission<br>
+      <input type="radio" name="filingType" value="original"> Original Submission
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step hidden" id="step5">
+      <label>Have you ever claimed before this?</label><br><br>
+      <input type="radio" name="claimedBeforeEarlier" value="yes"> Yes<br>
+      <input type="radio" name="claimedBeforeEarlier" value="no"> No
+    </div>
+
+    <div id="result" class="step hidden"></div>
+  </form>
+  </div>
+  <script src="../Logic/logic.js"></script>
+
+</body>
 </html>
