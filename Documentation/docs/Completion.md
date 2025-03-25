@@ -13,7 +13,7 @@ When it comes to the web that comes down to a few things.
 5. Space
 
 Copying and pasting the html did get me a certain amount of the way there as the html structure is compatible.
-![[Pasted image 20250324214148.png]]
+![Pasted image 20250324214148](Pasted%20image%2020250324214148.png)
 This gave me the elements needed to populate the questions without the styling.
 
 ## Style
@@ -27,7 +27,7 @@ Copying the code gave me the colour, font and padding that i needed for the page
 And so i placed it in a linked css file i was locally using to play with later.
 
 After configuring some things and removing unused code I was left with this.
-![[Pasted image 20250324214752.png]]
+![Pasted image 20250324214752](Pasted%20image%2020250324214752.png)
 The colours, spacing and formatting are correct with additionally the correct font.
 (You will notice that there are 2 different pages shown together, this is because on the actual page the Hide/ Show functionality does not remove the content from the page, only changes if it is displayed. As this has not been completed yet this will be shown still)
 ## Substance
@@ -51,7 +51,7 @@ The same method can be used in the new version as it this used vanilla JS and no
 # Part 2. Creation
 ## Structure
 According to the spec provided I've created the following questions in the order specified.
-![[Pasted image 20250324223107.png]]
+![Pasted image 20250324223107](Pasted%20image%2020250324223107.png)
 ## style
 ### Appear/ disappear
 Firstly the spec specifies that the questions should show/ appear based on the answers given by the use (thus in a hidden state by default apart from the 1st question).
@@ -135,7 +135,7 @@ This way the questions after this one can be shown or hidden as required by the 
 
 As you can see the values changing will either prompt the user to the next question.
 
-![[Pasted image 20250324225423.png]]
+![Pasted image 20250324225423](Pasted%20image%2020250324225423.png)
 
 or output the needed text
-![[Pasted image 20250324230322.png]]
+![Pasted image 20250324230322](Pasted%20image%2020250324230322.png)
