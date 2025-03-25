@@ -78,6 +78,9 @@ each step in the process is also given an id.
 
 This allows each questions to be targeted properly by the previously established method of showing / hiding elements.
 ### Imitation part 2 : return of the colour codes
+Note:
+
+This part was completed after ensuring that the java script portion was operational
 
 ## Substance
 For simplicity i created a script tag within the main file (`indexx.html` as it was temporarily named)
