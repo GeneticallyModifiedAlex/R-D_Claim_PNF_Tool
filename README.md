@@ -12,6 +12,8 @@ If you wanted to switch over you will only need to observe the differences in th
 
 p.s. the background is only beige to make the prenotification section pop more. Feel free to remove
 
+Full details can be found in the documentation section (goes over the process of investigation and how the output was reached (I write the documentation at the same time as completing tasks as part of my work method))
+
 # Possible Improvements
 - remove dependancy on form-group and form-row classes from hubspot.
 - create json object to save state of answers for future tracking
