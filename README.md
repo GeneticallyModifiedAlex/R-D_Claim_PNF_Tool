@@ -18,3 +18,4 @@ Full details can be found in the documentation section (goes over the process of
 - remove dependancy on form-group and form-row classes from hubspot.
 - create json object to save state of answers for future tracking
 - Google analyitics intergraion with GTM instance
+- migrate all measurements to using standard rem so that scaling and media queries can work better
